@@ -11,8 +11,7 @@ type Product struct {
 	Price float64 `json:"price"`
 }
 
-func FindAll() string {
-	// Crear una lista de productos de ejemplo
+func FindAllProducts() string {
 	products := []Product{
 		{ID: 1, Name: "Producto1", Price: 19990.0},
 		{ID: 2, Name: "Producto2", Price: 29990.0},

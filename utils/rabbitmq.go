@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-func sendResponse(ch *amqp.Channel, request amqp.Delivery, response string) error{
+func SendResponse(ch *amqp.Channel, request amqp.Delivery, response string) error{
 	err := ch.Publish(
 		"",          // Exchange
 		request.ReplyTo, 	 // Routing key (cola de respuesta)

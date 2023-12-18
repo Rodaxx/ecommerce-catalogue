@@ -1,4 +1,4 @@
-module github.com/Rodaxx/ecommerce-catalogue/mod
+module github.com/rodaxx/ecommerce-catalogue
 
 go 1.21.5
 
