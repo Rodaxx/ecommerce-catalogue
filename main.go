@@ -135,6 +135,22 @@ func main() {
 				}
 				utils.SendResponse(config.RMQChannel, msg, string(resultJSON));
 			case "FindProductsForBranch":
+				branchName, ok := message.Data.(map[string]interface{})["branchName"].(string)
+				if !ok {
+					fmt.Println("Error: branchName no encontrado")
+					return
+				}
+				products,err:=server.GetProductsForBranch(context.Background(),branchName)
+				if err != nil {
+					fmt.Println("Error al obtener productos:", err)
+					return
+				}
+				resultJSON, err := json.MarshalIndent(products, "", "  ")
+				if err != nil {
+					fmt.Println("Error al convertir a JSON:", err)
+					return
+				}
+				utils.SendResponse(config.RMQChannel, msg, string(resultJSON));
 			}
 		}
 	}()
