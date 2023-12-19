@@ -1,0 +1,41 @@
+{
+  "branchName": "branchName",
+  "branchDirection": "direction",
+  "products": [
+    {
+      "title": "productName",
+      "description": "description",
+      "type": "shirts",
+      "gender": "men",
+      "price": 23423423423,
+      "colorImageSize": [
+        {
+          "color": "white",
+          "imageOne": "url1",
+          "imageTwo": "url2",
+          "size": {
+            "XS": 30,
+            "S": 30,
+            "M": 30,
+            "L": 30,
+            "XL": 30,
+            "XLL": 30
+          }
+        },
+        {
+          "color": "black",
+          "imageOne": "url1",
+          "imageTwo": "url2",
+          "size": {
+            "XS": 30,
+            "S": 30,
+            "M": 30,
+            "L": 30,
+            "XL": 30,
+            "XLL": 30
+          }
+        }
+      ]
+    }
+  ]
+}
