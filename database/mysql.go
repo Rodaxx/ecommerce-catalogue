@@ -24,7 +24,7 @@ func NewMySQLRepository(url string) (*MySQLRepository, error) {
 }
 func (repo *MySQLRepository) FindAllProductsForBranch(ctx context.Context,branchName string) ([]* models.ProductDatabase,error){
 	rows, err := repo.db.QueryContext(ctx, 
-		"SELECT id,title,description,price,size,type,color,gender,imageOne,imageTwo,branch_name,branch_direction,quantity FROM products WHERE branch_name LIKE ? ",branchName)
+		"SELECT id,title,description,price,size,type,color,gender,imageOne,imageTwo,branch_name,branch_direction,quantity FROM products WHERE branch_name LIKE ? AND quantity <> 0",branchName)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func (repo *MySQLRepository) FindAllProductsForBranch(ctx context.Context,branch
 }
 func (repo *MySQLRepository) FindAllProducts(ctx context.Context) ([]*models.ProductDatabase, error) {
 	rows, err := repo.db.QueryContext(ctx, 
-		"SELECT id,title,description,price,size,type,color,gender,imageOne,imageTwo,branch_name,branch_direction,quantity FROM products ORDER BY branch_name,title")
+		"SELECT id,title,description,price,size,type,color,gender,imageOne,imageTwo,branch_name,branch_direction,quantity FROM products WHERE quantity <> 0 ORDER BY branch_name,title")
 	if err != nil {
 		return nil, err
 	}
